@@ -1,0 +1,22 @@
+<section class="game">
+  <button *ngIf="!this.play" class="btn-game" (click)="startGame()">
+    START
+  </button>
+  <div class="game-start">
+    <h2 *ngIf="this.play && !this.currentQuestion">GET READY!</h2>
+    <div class="game-info">
+      <span *ngIf="this.play" class="info">Score: <span class="focus">{{score}}</span></span>
+      <span *ngIf="this.play" class="info">Time: <span class="focus"> {{minutes}}:{{seconds}} </span></span>
+    </div>
+    <p *ngIf="this.currentQuestion" class="question">{{currentQuestion.description}}</p>
+    <div class="answer-group" *ngIf="this.currentQuestion">
+      <button *ngFor="let answer of currentQuestion.correctAnswers" [ngClass]="{'valid-answer': answerSubmitted}"  (click)="submitCorrectAnswer()" class="btn btn-primary">
+        {{answer}}
+      </button>
+      <button *ngFor="let answer of currentQuestion.wrongAnswers" [ngClass]="{'invalid-answer': answerSubmitted}" (click)="submitWrongAnswer()" class="btn btn-primary">
+        {{answer}}
+      </button>
+    </div>
+  </div>
+
+</section>

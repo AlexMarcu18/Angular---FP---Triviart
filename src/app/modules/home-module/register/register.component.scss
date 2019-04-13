@@ -1,0 +1,71 @@
+@import '../../../../assets/styles/_variables';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  // background-color: rgba(0, 0, 0, 0.274);
+  background-color: $white-color;
+  // color: rgba(255, 255, 255, 0.959);
+  color: black;
+
+  .description {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .title {
+    margin: 0px 25px;
+  }
+
+  .subtitle {
+    margin: 25px;
+  }
+
+  .form-group {
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .form-input {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 15px 0px;
+    }
+
+    input {
+      width: 100%;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      color: $black-color;
+      // color:white;
+    }
+
+    .absolute {
+      position: absolute;
+      right:0;
+    }
+
+    .ng-valid,
+    .ng-valid.required {
+      border-bottom: 1px solid $color-valid;
+    }
+
+    .ng-invalid:not(form) {
+      border-bottom: 1px solid $color-invalid;
+    }
+
+
+    .fa-check-circle {
+      position: absolute;
+      top: 25%;
+      right: -15%;
+      color: $color-valid;
+    }
+  }
+}

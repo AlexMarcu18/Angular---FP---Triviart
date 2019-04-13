@@ -1,0 +1,30 @@
+<section class="profile">
+  <div class="user-description">
+    <i class="fas fa-user-circle fa-5x"></i>
+    <div class="user-description-data">
+      <span>{{user.firstname}} {{user.lastname}}</span>
+      <span>Level: {{level}}</span>
+    </div>
+  </div>
+  <div class="achievement">
+    <div class="achievement-header">
+        <i class="fas fa-trophy"></i>
+        <h6>Achievements</h6>
+        <i class="fas fa-trophy"></i>
+    </div>
+    <div class="achievement-group">
+      <div class="achievement-row">
+        <span class="achievement-count">{{bestScore}}</span>
+        <span>Best Score</span>
+      </div>
+      <div class="achievement-row">
+        <span class="achievement-count">{{questionsSolved}}</span>
+        <span>Questions Solved</span>
+      </div>
+      <div class="achievement-row">
+        <span class="achievement-count">{{gamesPlayed}}</span>
+        <span>Games Played</span>
+      </div>
+    </div>
+  </div>
+</section>

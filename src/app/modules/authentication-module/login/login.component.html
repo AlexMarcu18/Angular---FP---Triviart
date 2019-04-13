@@ -1,0 +1,20 @@
+<ng-template #template>
+
+  <app-modal (close)="closeModal($event)" (submit)="onSubmit($event)">
+    <div class="modal-content">
+      <form [formGroup]="form" class="form-group">
+        <input type="email" placeholder="Email" formControlName="email">
+        <input type="password" placeholder="Password" formControlName="password">
+      </form>
+      <div class="additional">
+        <div class="additional-remember">
+          <input type="checkbox" [(ngModel)]="this.rememberMe">
+          <p>Remember me</p>
+        </div>
+        <p>Forgot Password</p>
+      </div>
+      <p *ngIf="!this.loginResponse && this.submitPressed" class="invalid">Wrong credentials! Take a look again...</p>
+    </div>
+  </app-modal>
+
+</ng-template>

@@ -1,0 +1,60 @@
+@import '../../../../assets/styles/_variables';
+
+.modal-content {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  border: none;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+
+    input {
+      width: 85%;
+      margin: 15px 0px;
+      outline: none;
+      border:none;
+    }
+
+    .ng-valid,
+    .ng-valid.required {
+      border-bottom: 1px solid $color-valid;
+    }
+
+    .ng-invalid:not(form) {
+      border-bottom: 1px solid $color-invalid;
+    }
+  }
+
+  .additional {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    font-size: 12px;
+
+    &-remember {
+      display: flex;
+      align-items: center;
+
+      input {
+        margin-right: 5px;
+      }
+
+      p {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .invalid {
+    margin-top:20px;
+    color:$color-invalid;
+  }
+}

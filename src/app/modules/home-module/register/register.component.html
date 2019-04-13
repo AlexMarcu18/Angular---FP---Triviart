@@ -1,0 +1,22 @@
+<section class="container">
+  <div class="description">
+    <h3 class="title">Sign up now</h3>
+    <i class="fas fa-user-edit fa-2x"></i>
+  </div>
+  <h6 class="subtitle">Get instant acces to TriviArt right now for FREE!</h6>
+  <form [formGroup]="form" class="form-group">
+    <div class="form-input">
+      <input type="firstname" placeholder="Firstname" formControlName="firstname" required><i class="fas fa-user absolute"></i>
+    </div>
+    <div class="form-input">
+      <input type="lastname" placeholder="Lastname" formControlName="lastname"><i class="fas fa-user absolute"></i>
+    </div>
+    <div class="form-input">
+      <input type="email" placeholder="Email" formControlName="email"><i class="fas fa-envelope-square absolute"></i>  
+    </div>
+    <div class="form-input">
+      <input type="password" placeholder="Password" formControlName="password"><i class="fas fa-unlock absolute"></i>
+    </div>
+    <button class="btn btn-primary" (click)="registerUser()">Sign me Up!</button>
+  </form>
+</section>
