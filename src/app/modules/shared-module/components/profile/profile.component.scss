@@ -1,64 +1,65 @@
 @import '../../../../../assets/styles/_variables';
 
 .profile {
-    display:flex;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 800px;
+  min-height: 100px;
+  background-color: white;
+  border-bottom: 1px solid black;
+
+  .user-description {
+    display: flex;
     justify-content: space-around;
-    align-items:center;
-    min-width: 800px;
-    min-height: 100px;
-    background-color:white;
-    border-bottom:1px solid black;
+    align-items: center;
+    width: 50%;
+    height: 100%;
 
-    .user-description {
-        display:flex;
-        justify-content: space-around;
-        align-items: center;
-        width:50%;
-        height:100%;
+    &-data {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      margin-right: 100px;
+    }
+  }
 
-        &-data {
-            display:flex;
-            flex-direction: column;
-            justify-content: center;
-            height:100%;
-            margin-right: 100px;
-        }
+  .achievement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+
+    &-header {
+      display: flex;
+
+      :first-child {
+        margin-right: 15px;
+      }
+
+      :last-child {
+        margin-left: 15px;
+      }
     }
 
-    .achievement {
-        display:flex;
-        flex-direction: column;
-        align-items:center;
-        justify-content: center;
-        width:50%;
-        height:100%;
-
-        &-header {
-            display:flex;
-
-            :first-child{
-                margin-right: 15px;
-            }
-            :last-child{
-                margin-left: 15px;
-            }
-        }
-
-        &-group {
-            display:flex;
-            justify-content: space-around;
-            width:100%;
-            font-size:12px;
-        }
-
-        &-row {
-            display:flex;
-            flex-direction: column;
-            align-items:center;
-        }
-
-        &-count {
-            color:$blue-color;
-        }
+    &-group {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      font-size: 12px;
     }
+
+    &-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-count {
+      color: $blue-color;
+    }
+  }
 }

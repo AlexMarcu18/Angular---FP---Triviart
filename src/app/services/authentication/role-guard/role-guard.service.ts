@@ -11,9 +11,9 @@ import { User } from 'src/app/models/User';
 })
 
 export class RoleGuardService implements CanActivate {
-  public authenticatedUser:User;
+  public authenticatedUser: User;
   constructor(public auth: AuthService,
-    public router: Router) {}
+    public router: Router) { }
   canActivate(): boolean {
 
     if (!this.auth.isAuthenticated()) {
@@ -21,7 +21,7 @@ export class RoleGuardService implements CanActivate {
       this.router.navigate(['landing-page']);
       return false;
     }
-    else if(this.auth.getAuthenticatedUser().isAdmin != true) {
+    else if (this.auth.getAuthenticatedUser().isAdmin != true) {
       alert('You re not an admin!');
       this.router.navigate(['game-page']);
       return false;

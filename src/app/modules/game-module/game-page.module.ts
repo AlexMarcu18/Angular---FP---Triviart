@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-    declarations:[
+    declarations: [
         GamePageComponent,
         GameComponent
     ],
@@ -30,4 +30,4 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
     ]
 })
-export class GameModule{}
+export class GameModule { }

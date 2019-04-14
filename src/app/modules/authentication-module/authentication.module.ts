@@ -5,7 +5,7 @@ import { SharedModule } from '../shared-module/shared.module';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-    declarations:[
+    declarations: [
         LoginComponent
     ],
     imports: [
@@ -21,4 +21,4 @@ import { CommonModule } from '@angular/common';
 
     ]
 })
-export class AuthenticationModule{}
+export class AuthenticationModule { }

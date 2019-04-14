@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class ProfileComponent implements OnInit {
 
-  public user:User;
+  public user: User;
   public bestScore: number;
   public questionsSolved: number;
   public gamesPlayed: number;
@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
     this.level = this.user.level;
   }
 
-  public subscription = this.userService.getProfileObserver().subscribe( data => {
+  public subscription = this.userService.getProfileObserver().subscribe(data => {
     this.bestScore = data.bestScore;
     this.questionsSolved = data.questionsSolved;
     this.gamesPlayed = data.gamesPlayed;

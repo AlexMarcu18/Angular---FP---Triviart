@@ -11,19 +11,6 @@ export class UserService {
   public user$ = this.user.asObservable();
   public registeredUser: User;
   public loggedUser: User;
-  public registeredUsers: User[] = [
-    {
-      firstname: 'Alex',
-      lastname: 'Marcu',
-      email: 'alex.marcu@gmail.com',
-      password: '12345678',
-      isAdmin: false,
-      bestScore: 1200,
-      questionsSolved: 50,
-      gamesPlayed: 10,
-      level: 1
-    },
-  ];
   public sessionStorage = window.sessionStorage;
   public localStorage = window.localStorage;
 
@@ -43,7 +30,7 @@ export class UserService {
   public updateProfileUser(user: User) {
     this.user.next(user);
   }
-  public getProfileObserver(){
+  public getProfileObserver() {
     return this.user$;
   }
 
@@ -67,7 +54,7 @@ export class UserService {
   }
 
   checkCredentials(email: string, password: string) {
-    if( this.localStorage.getItem(email) !== null){
+    if (this.localStorage.getItem(email) !== null) {
       this.loggedUser = JSON.parse(this.localStorage.getItem(email));
       if (this.loggedUser.email == email && this.loggedUser.password == password) {
         return this.loggedUser;
@@ -94,17 +81,23 @@ export class UserService {
   }
 
   registerSubmit(firstname: string, lastname: string, email: string, pass: string) {
-    this.registeredUser = {
-      firstname: firstname,
-      lastname: lastname,
-      email: email,
-      password: pass,
-      isAdmin: false,
-      bestScore: 0,
-      questionsSolved: 0,
-      gamesPlayed: 0,
-      level: 1
-    };
-    this.localStorage.setItem(email, JSON.stringify(this.registeredUser));
+    if(this.localStorage.getItem(email) == null) {
+      this.registeredUser = {
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        password: pass,
+        isAdmin: false,
+        bestScore: 0,
+        questionsSolved: 0,
+        gamesPlayed: 0,
+        level: 1
+      };
+      this.localStorage.setItem(email, JSON.stringify(this.registeredUser));
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 }

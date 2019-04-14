@@ -1,0 +1,12 @@
+<ng-template #template>
+  <div class="content">
+    <h1 class="title"> LEADERBOARD </h1>
+    <ol class="scores">
+      <li *ngFor="let score of leaderboard">
+        <span>{{score.firstname}}</span>
+        <span>{{score.lastname}}</span>
+        <span class="focus">{{score.data}}</span>
+      </li>
+    </ol>
+  </div>
+</ng-template>

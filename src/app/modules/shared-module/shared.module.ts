@@ -5,7 +5,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
-    declarations:[
+    declarations: [
         ModalComponent,
         ProfileComponent
     ],
@@ -20,4 +20,4 @@ import { ProfileComponent } from './components/profile/profile.component';
 
     ]
 })
-export class SharedModule{}
+export class SharedModule { }

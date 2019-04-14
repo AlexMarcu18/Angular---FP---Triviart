@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LoginComponent } from '../../authentication-module/login/login.component';
 import { BsModalRef } from 'ngx-bootstrap';
 import { Router } from '@angular/router';
+import { LeaderboardComponent } from '../leaderboard/leaderboard.component';
 
 @Component({
   selector: 'app-landing-page',
@@ -10,10 +11,11 @@ import { Router } from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
 
-  public modalRef:BsModalRef;
-  constructor(private router:Router) { }
+  public modalRef: BsModalRef;
+  constructor(private router: Router) { }
 
-  @ViewChild(LoginComponent) loginModal:LoginComponent;
+  @ViewChild(LoginComponent) loginModal: LoginComponent;
+  @ViewChild(LeaderboardComponent) leaderboardModal: LeaderboardComponent;
 
   public config = {
     animated: true,
@@ -26,13 +28,16 @@ export class LandingPageComponent implements OnInit {
   }
 
 
-  openModal(){
-    if( window.sessionStorage.getItem('currentUser') || window.localStorage.getItem('currentUser')) {
+  openLoginModal() {
+    if (window.sessionStorage.getItem('currentUser') || window.localStorage.getItem('currentUser')) {
       this.router.navigate(['/game-page']);
     }
     else {
       this.loginModal.openModal();
     }
+  }
+  openLeaderboardModal() {
+    this.leaderboardModal.openModal();
   }
 
 }

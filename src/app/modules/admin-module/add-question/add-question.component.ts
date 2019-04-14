@@ -10,27 +10,27 @@ import { MatSnackBar } from '@angular/material';
 })
 export class AddQuestionComponent implements OnInit {
 
-  public form:FormGroup;
-  constructor(private formBuilder:FormBuilder,
-    private gameService:GameService,
-    private snackBar:MatSnackBar) {
+  public form: FormGroup;
+  constructor(private formBuilder: FormBuilder,
+    private gameService: GameService,
+    private snackBar: MatSnackBar) {
     this.form = this.formBuilder.group({
-      description:['',[Validators.required]],
-      correctAnswer:['',[Validators.required]],
-      wrongAnswer1:['',[Validators.required]],
-      wrongAnswer2:['',[Validators.required]],
-      wrongAnswer3:['',[Validators.required]],
+      description: ['', [Validators.required]],
+      correctAnswer: ['', [Validators.required]],
+      wrongAnswer1: ['', [Validators.required]],
+      wrongAnswer2: ['', [Validators.required]],
+      wrongAnswer3: ['', [Validators.required]],
     })
-   }
+  }
 
   ngOnInit() {
   }
 
   addQuestion() {
     // this.gameService.addQuestion(this.form);
-    let snackBarRef = this.snackBar.open("Question added",null,{
-      duration:3000,
-      panelClass:'snackbar'
+    let snackBarRef = this.snackBar.open("Question added", null, {
+      duration: 3000,
+      panelClass: 'snackbar'
     });
   }
 }

@@ -8,11 +8,11 @@ import { User } from 'src/app/models/User';
 })
 
 export class AuthService {
-  constructor(public userSerivice:UserService) {}
+  constructor(public userSerivice: UserService) { }
 
   public isAuthenticated(): boolean {
     const user = this.userSerivice.getLoggedUser();
-    if ( user ) {
+    if (user) {
       return true;
     }
     else {
@@ -20,7 +20,7 @@ export class AuthService {
     }
   }
 
-  public getAuthenticatedUser():User{
+  public getAuthenticatedUser(): User {
     return JSON.parse(this.userSerivice.getLoggedUser());
   }
 }

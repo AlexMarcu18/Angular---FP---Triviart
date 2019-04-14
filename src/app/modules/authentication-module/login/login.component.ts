@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   constructor(private modalService: BsModalService,
     private userService: UserService,
     private formBuilder: FormBuilder,
-    private router:Router) {
+    private router: Router) {
     this.form = this.formBuilder.group({
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.minLength(8), Validators.required]]
@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.email = this.form.get("email");
     this.password = this.form.get("password");
-    if ( this.email.valid && this.password.valid ) {
+    if (this.email.valid && this.password.valid) {
       this.loginResponse = this.userService.loginSubmit(this.form.get("email").value, this.form.get("password").value, this.rememberMe);
       this.submitPressed = true;
       if (this.loginResponse) {

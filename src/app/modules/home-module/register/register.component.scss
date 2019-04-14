@@ -4,9 +4,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  // background-color: rgba(0, 0, 0, 0.274);
   background-color: $white-color;
-  // color: rgba(255, 255, 255, 0.959);
   color: black;
 
   .description {
@@ -24,7 +22,7 @@
   }
 
   .form-group {
-    position:relative;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,12 +41,11 @@
       outline: none;
       border: none;
       color: $black-color;
-      // color:white;
     }
 
     .absolute {
       position: absolute;
-      right:0;
+      right: 0;
     }
 
     .ng-valid,

@@ -6,13 +6,13 @@
     </div>
     <div class="btn-container">
       <div class="btn-group">
-        <button class="btn-icon" (click)="openModal()">
+        <button class="btn-icon" (click)="openLoginModal()">
           <i class="far fa-play-circle fa-3x"></i>
         </button>
         <p class="btn-icon-description">PLAY</p>
       </div>
       <div class="btn-group">
-        <button class="btn-icon">
+        <button class="btn-icon" (click)="openLeaderboardModal()">
           <i class="fas fa-list fa-2x"></i>
         </button>
         <p class="btn-icon-description">LEADERBOARD</p>
@@ -24,6 +24,7 @@
         <p class="btn-icon-description">CONTACT</p>
       </div>
       <app-login #loginModal></app-login>
+      <app-leaderboard #leaderboardModal></app-leaderboard>
     </div>
   </div>
   <app-register></app-register>

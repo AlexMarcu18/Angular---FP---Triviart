@@ -8,7 +8,7 @@ import { AddQuestionComponent } from './add-question/add-question.component';
 
 
 @NgModule({
-    declarations:[
+    declarations: [
         DashboardComponent,
         AddQuestionComponent
     ],
@@ -30,4 +30,4 @@ import { AddQuestionComponent } from './add-question/add-question.component';
 
     ]
 })
-export class AdminModule{}
+export class AdminModule { }

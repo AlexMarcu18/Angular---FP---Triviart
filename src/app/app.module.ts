@@ -9,6 +9,7 @@ import { HomeModule } from './modules/home-module/home.module';
 import { GameModule } from './modules/game-module/game-page.module';
 import { AdminModule } from './modules/admin-module/admin.module';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { MocksModule } from './mocks/mocks.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
     AppRoutingModule,
     HomeModule,
     GameModule,
-    AdminModule
+    AdminModule,
+    MocksModule
   ],
   declarations: [
     AppComponent

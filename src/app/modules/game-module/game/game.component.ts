@@ -1,12 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GameService } from 'src/app/services/game/game.service';
-import { timeout } from 'q';
 import { Question } from 'src/app/models/Question';
-import { setTime } from 'ngx-bootstrap/chronos/utils/date-setters';
 import { UserService } from 'src/app/services/user/user.service';
 import { User } from 'src/app/models/User';
-import { parse } from 'url';
-import { toInt } from 'ngx-bootstrap/chronos/utils/type-checks';
 
 @Component({
   selector: 'app-game',
@@ -61,7 +57,7 @@ export class GameComponent implements OnInit {
         this.currentQuestion = null;
         clearInterval(this.questionInterval);
       }
-      else if (this.seconds % 5 == 0) {
+      else if (this.seconds % this.timePerQuestion == 0) {
         this.answerSubmitted = false;
         this.currentQuestion = this.questions[this.index - 1];
         this.currentAnswers = this.shuffle(this.gameService.addAnswersId(this.currentQuestion.correctAnswers.concat(this.currentQuestion.wrongAnswers)));
@@ -78,13 +74,13 @@ export class GameComponent implements OnInit {
   }
 
   setupGame() {
-    if(this.questionNumber){
+    if (this.questionNumber) {
       this.index = this.questionNumber;
     }
     else {
       this.index = this.questions.length;
     }
-    if(this.timePerQuestion){
+    if (this.timePerQuestion) {
       this.timer = this.timePerQuestion * this.index + 4;
     }
     else {
@@ -96,17 +92,18 @@ export class GameComponent implements OnInit {
     this.questionSolved = 0;
   }
 
-  submitAnswer(answer:any) {
+  submitAnswer(answer: any) {
     if (!this.answerSubmitted) {
       this.answerSubmitted = true;
-      if( answer.id == 1){
-        this.score += (this.seconds % this.timePerQuestion) * 100;
+      if (answer.id == 1) {
+        this.score += (this.seconds % this.timePerQuestion) * 100 + 100;
         this.questionSolved += 1;
       }
     }
   }
 
   updateLocalUserStats() {
+    this.gameService.addScoreToLeaderboard(this.score);
     if (this.score > this.currentUser.bestScore) {
       this.currentUser.bestScore = this.score;
     }

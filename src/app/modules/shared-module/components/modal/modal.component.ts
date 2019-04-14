@@ -9,18 +9,18 @@ import { EventEmitter } from '@angular/core';
 export class ModalComponent implements OnInit {
 
 
-  @Input() title:string = "LOG IN";
-  @Output() close:EventEmitter<any> = new EventEmitter();
-  @Output() submit:EventEmitter<any> = new EventEmitter();
-  
+  @Input() title: string = "LOG IN";
+  @Output() close: EventEmitter<any> = new EventEmitter();
+  @Output() submit: EventEmitter<any> = new EventEmitter();
 
-  public currentUser:string = window.sessionStorage.getItem('currentUser');
+
+  public currentUser: string = window.sessionStorage.getItem('currentUser');
   constructor() { }
 
   ngOnInit() {
   }
 
-  submitData(){
+  submitData() {
     this.submit.emit();
   }
 
