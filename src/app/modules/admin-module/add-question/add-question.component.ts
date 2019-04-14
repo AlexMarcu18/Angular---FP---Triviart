@@ -15,11 +15,11 @@ export class AddQuestionComponent implements OnInit {
     private gameService: GameService,
     private snackBar: MatSnackBar) {
     this.form = this.formBuilder.group({
-      description: ['', [Validators.required]],
-      correctAnswer: ['', [Validators.required]],
-      wrongAnswer1: ['', [Validators.required]],
-      wrongAnswer2: ['', [Validators.required]],
-      wrongAnswer3: ['', [Validators.required]],
+      description: ['', [Validators.minLength(10),Validators.required]],
+      correctAnswer: ['', [Validators.minLength(4),Validators.required]],
+      wrongAnswer1: ['', [Validators.minLength(4),Validators.required]],
+      wrongAnswer2: ['', [Validators.minLength(4),Validators.required]],
+      wrongAnswer3: ['', [Validators.minLength(4),Validators.required]],
     })
   }
 
@@ -27,10 +27,19 @@ export class AddQuestionComponent implements OnInit {
   }
 
   addQuestion() {
-    // this.gameService.addQuestion(this.form);
-    let snackBarRef = this.snackBar.open("Question added", null, {
-      duration: 3000,
-      panelClass: 'snackbar'
-    });
+    if (this.form.valid) {
+      this.gameService.addQuestion(this.form);
+      this.snackBar.open("Question added", null, {
+        duration: 3000,
+        panelClass: 'snackbar'
+      });
+    }
+    else {
+      this.snackBar.open("Invalid inputs", null, {
+        duration: 3000,
+        panelClass: 'snackbar'
+      });
+    }
+
   }
 }
