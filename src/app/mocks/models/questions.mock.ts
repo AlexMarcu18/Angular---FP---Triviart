@@ -30,5 +30,20 @@ export class QuestionsMock {
       description: "Q1",
       correctAnswers: ["a1"],
       wrongAnswers: ["a2", "a3", "a4"]
+    },
+    {
+      description: "Q2",
+      correctAnswers: ["a1"],
+      wrongAnswers: ["a2", "a3", "a4"]
+    },
+    {
+      description: "Q3",
+      correctAnswers: ["a1"],
+      wrongAnswers: ["a2", "a3", "a4"]
+    },
+    {
+      description: "Q4",
+      correctAnswers: ["a1"],
+      wrongAnswers: ["a2", "a3", "a4"]
     }];
 }
