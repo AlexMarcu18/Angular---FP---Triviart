@@ -20,6 +20,11 @@
         display:flex;
         background-color:white;
 
+        .mat-tab-labels {
+            display:flex;
+            justify-content: space-around !important;
+        }
+
         .question-tab {
             display:flex;
             flex-direction: column;
@@ -32,9 +37,4 @@
         }
     }
 
-}
-
-.mat-tab-labels {
-    display:flex;
-    justify-content: space-around !important;
 }

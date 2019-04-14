@@ -17,9 +17,7 @@ export class ProfileComponent implements OnInit {
   public level: number;
   constructor(private userService: UserService) {
     this.user = JSON.parse(this.userService.getLoggedUser());
-    console.log(this.user);
     this.user = JSON.parse(window.localStorage.getItem(this.user.email));
-    console.log(this.user);
   }
 
   ngOnInit() {

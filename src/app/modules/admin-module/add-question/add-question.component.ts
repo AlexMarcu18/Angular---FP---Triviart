@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { GameService } from 'src/app/services/game/game.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-add-question',
@@ -11,7 +12,8 @@ export class AddQuestionComponent implements OnInit {
 
   public form:FormGroup;
   constructor(private formBuilder:FormBuilder,
-    private gameService:GameService) {
+    private gameService:GameService,
+    private snackBar:MatSnackBar) {
     this.form = this.formBuilder.group({
       description:['',[Validators.required]],
       correctAnswer:['',[Validators.required]],
@@ -25,6 +27,10 @@ export class AddQuestionComponent implements OnInit {
   }
 
   addQuestion() {
-    this.gameService.addQuestion(this.form);
+    // this.gameService.addQuestion(this.form);
+    let snackBarRef = this.snackBar.open("Question added",null,{
+      duration:3000,
+      panelClass:'snackbar'
+    });
   }
 }

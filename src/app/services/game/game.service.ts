@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class GameService {
   public questions: Array<Question>;
-  public questionsStorage:Array<Question>;
+  public questionsStorage: Array<Question>;
   public rules: Array<string> = [
     'Set your game preferences before you start it',
     'You have a couple of seconds for every question',
@@ -41,10 +41,30 @@ export class GameService {
     const wrongAnswer3 = form.get('wrongAnswer3').value;
 
     this.questionsStorage.push({
-      description:description ,
+      description: description,
       correctAnswers: [correctAnswer],
       wrongAnswers: [wrongAnswer1, wrongAnswer2, wrongAnswer3]
     });
-    window.localStorage.setItem('questions',JSON.stringify(this.questionsStorage));
+    window.localStorage.setItem('questions', JSON.stringify(this.questionsStorage));
+  }
+
+  addAnswersId(answers: Array<string>): Array<any>{
+    return [{
+      id: 1,
+      data: answers[0]
+    },
+    {
+      id: 2,
+      data: answers[1]
+    },
+    {
+      id: 3,
+      data: answers[2]
+    },
+    {
+      id: 4,
+      data: answers[3]
+    }];
+
   }
 }

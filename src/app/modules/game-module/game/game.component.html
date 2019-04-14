@@ -10,12 +10,12 @@
     </div>
     <p *ngIf="this.currentQuestion" class="question">{{currentQuestion.description}}</p>
     <div class="answer-group" *ngIf="this.currentQuestion">
-      <button *ngFor="let answer of currentQuestion.correctAnswers" [ngClass]="{'valid-answer': answerSubmitted}"  (click)="submitCorrectAnswer()" class="btn btn-primary">
-        {{answer}}
+      <button *ngFor="let answer of currentAnswers" [ngClass]="{'valid-answer': answer.id == 1 && answerSubmitted, 'invalid-answer': answer.id != 1 && answerSubmitted}"  (click)="submitAnswer(answer)" class="btn btn-primary">
+        {{answer.data}}
       </button>
-      <button *ngFor="let answer of currentQuestion.wrongAnswers" [ngClass]="{'invalid-answer': answerSubmitted}" (click)="submitWrongAnswer()" class="btn btn-primary">
-        {{answer}}
-      </button>
+      <!-- <button *ngFor="let answer of currentQuestion.wrongAnswers" [ngClass]="{'invalid-answer': answerSubmitted}" (click)="submitWrongAnswer()" class="btn btn-primary">
+        {{answer}} -->
+      <!-- </button> -->
     </div>
   </div>
 
