@@ -49,6 +49,8 @@ export class GameComponent implements OnInit {
     this.gameOver = false;
     this.setupGame();
     this.questionInterval = setInterval(() => {
+      // console.log(this.minutes);
+      // console.log(this.seconds);
       if (this.seconds == 0 && this.minutes == 0) {
         this.gameOver = true;
         this.play = false;
@@ -62,13 +64,15 @@ export class GameComponent implements OnInit {
         this.currentQuestion = this.questions[this.index - 1];
         this.currentAnswers = this.shuffle(this.gameService.addAnswersId(this.currentQuestion.correctAnswers.concat(this.currentQuestion.wrongAnswers)));
         this.index--;
-      }
-      else if (this.seconds == 0 && this.minutes > 0) {
-        this.minutes--;
-        this.seconds = 59;
+        if (this.seconds == 0 && this.minutes > 0) {
+          this.minutes--;
+          this.seconds = 60;
+        }
+        // console.log(this.seconds)
       }
       if (this.seconds) {
         this.seconds--;
+        console.log(this.seconds);
       }
     }, 1000);
   }
@@ -88,6 +92,7 @@ export class GameComponent implements OnInit {
     }
     this.seconds = this.timer % 60;
     this.minutes = Math.floor(this.timer / 60);
+    console.log(this.minutes)
     this.questions = this.shuffle(this.questions);
     this.questionSolved = 0;
   }
